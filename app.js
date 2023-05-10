@@ -5,6 +5,7 @@ const axios = require("axios");
 const generateAge = require("./utils/generateAge");
 const path = require("path");
 
+const PORT = process.env.PORT || 5000;
 mongoose.connect(process.env.MONGODB_URI, () => {
   console.log("Connected to MongoDB");
 });
@@ -23,6 +24,6 @@ app.use("/api/v1/user", userRouter);
 const dateRouter = require("./routes/date.route");
 app.use("/api/v1/date", dateRouter);
 
-app.listen(process.env.PORT, () => {
-  console.log(`Server started on ${process.env.PORT}`);
+app.listen(PORT, () => {
+  console.log(`Server started on ${PORT}`);
 });
